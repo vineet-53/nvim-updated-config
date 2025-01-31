@@ -32,17 +32,17 @@ map("n", "#", "#zz")
 -- map("n", "k", "kzz")
 -- find and replace
 map("n", "<leader>s", function()
-  local cmd = ":%s/<C-r><C-w>/<C-r><C-w>/gI<Left><Left><Left>"
-  local keys = vim.api.nvim_replace_termcodes(cmd, true, false, true)
-  vim.api.nvim_feedkeys(keys, "n", false)
+	local cmd = ":%s/<C-r><C-w>/<C-r><C-w>/gI<Left><Left><Left>"
+	local keys = vim.api.nvim_replace_termcodes(cmd, true, false, true)
+	vim.api.nvim_feedkeys(keys, "n", false)
 end)
 
 --start and end nvaigation
-map("n", "L", "$")
-map("n", "H", "^")
+-- map("n", "L", "$")
+-- map("n", "H", "^")
 
-map('n', '<Tab>', ':bnext<CR>', opts)
-map('n', '<S-Tab>', ':bprevious<CR>', opts)
+map("n", "L", ":bnext<CR>", opts)
+map("n", "H", ":bprevious<CR>", opts)
 
 -- This is going to get me cancelled
 map("i", "<C-c>", "<Esc>")
@@ -121,10 +121,10 @@ map("v", ">", ">gv", opts)
 -- cpp compile commands
 -- map("n", "<F5>", ":w <bar> !clear && g++ %:r.cpp -o %:r.exe<CR> <bar> :!./%:r.exe<CR>", opts)
 map(
-  "n",
-  "<F5>",
-  ":silent! w <bar> :silent! !g++ %:r.cpp -o %:r.exe <CR> <bar> :!./%:r.exe <CR> <bar> <CR> <bar> :echo 'compiled success' <CR>",
-  { silent = true }
+	"n",
+	"<F5>",
+	":silent! w <bar> :silent! !g++ %:r.cpp -o %:r.exe <CR> <bar> :!./%:r.exe <CR> <bar> <CR> <bar> :echo 'compiled success' <CR>",
+	{ silent = true }
 )
 map("n", "<F9>", ":silent! w <bar> !clear && g++ %:r.cpp -o %:r.exe <CR>", opts)
 map("n", "<F10>", ":!./%:r.exe<CR>", opts)
