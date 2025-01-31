@@ -26,4 +26,6 @@ require("lazy").setup({
 	require("plugins.none-ls"),
 	require("plugins.indent-blankline"),
 	require("plugins.misc"),
+	require("plugins.autopairs"),
+	require("plugins.undotree"),
 })
