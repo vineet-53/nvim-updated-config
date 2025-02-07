@@ -26,8 +26,8 @@ return {
 				sorting_strategy = "ascending",
 				mappings = {
 					i = {
-						["<C-n>"] = require("telescope.actions").move_selection_previous,
-						["<C-p>"] = require("telescope.actions").move_selection_next,
+						["<C-p>"] = require("telescope.actions").move_selection_previous,
+						["<C-n>"] = require("telescope.actions").move_selection_next,
 						["<C-y>"] = require("telescope.actions").select_default,
 					},
 				},

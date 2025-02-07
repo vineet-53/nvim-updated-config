@@ -1,4 +1,5 @@
 vim.g.mapleader = " "
+
 local opts = { noremap = true, silent = true }
 local map = vim.keymap.set
 -- Keybinds
@@ -13,8 +14,10 @@ map("n", "J", "mzJ`z")
 map("n", "<Tab>", "%")
 
 -- cursor in center while scrolling
-map("n", "<C-u>", "<C-u>zz")
-map("n", "<C-d>", "<C-d>zz")
+
+map("n", "<C-u>", "<C-u>zz", opts)
+map("n", "<C-d>", "<C-d>zz", opts)
+
 map("n", "{", "{zz")
 map("n", "}", "}zz")
 map("n", "N", "Nzz")
@@ -72,7 +75,7 @@ map("n", "<Esc>", "<cmd>nohlsearch<CR>")
 map({ "n", "v" }, ";y", [["+y]])
 map({ "n", "v" }, ";d", [["+d]])
 map({ "n", "v" }, "<leader>d", [["_d]])
-map("x", "<leader>p", [["_dP]])
+map("v", "p", '"_dP', opts)
 
 -- Resize window using <ctrl> arrow keys
 map("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase Window Height" })
@@ -113,7 +116,7 @@ map("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window W
 -- end, { desc = "Search [G]it [F]iles" })
 
 -- General
-map("n", "<leader>q", ":qa! <cr>", opts)
+map("n", "<leader>q", "<cmd> q <CR>", opts)
 map("n", "<leader>a", "gg<S-v>G", opts)
 map("v", "<", "<gv", opts)
 map("v", ">", ">gv", opts)
@@ -147,3 +150,7 @@ map("n", "<leader>of", ":s/\\(# \\)[^_]*_/\\1/ | s/-/ /g<cr>")
 -- search for files in full vault
 map("n", "<leader>os", ':Telescope find_files search_dirs={"/mnt/drive2/obsidian-notes"}<cr>')
 map("n", "<leader>oz", ':Telescope live_grep search_dirs={"/mnt/drive2/obsidian-notes"}<cr>')
+
+-- save file
+map("n", "<C-s>", "<cmd> w <CR>", opts)
+map("n", "<C-w>", "<cmd> bd <CR>", opts)
